@@ -1,4 +1,4 @@
-# Counter_4bit_up-down
+## Exp-No:2 BIT Up-Down Counter - Write Verilog Code and Verify the Functionality using Test-bench ( Using Frontend tool - nclaunch in cadence).
 
 ## Aim:
 
@@ -10,27 +10,25 @@ To write a verilog code for 4bit up/down counter and verify the functionality us
    
 ## Design Information and Bock Diagram:
 
-	An up/down counter is a digital counter which can be set to count either from 0 to
++	An up/down counter is a digital counter which can be set to count either from 0 to
 MAX_VALUE or MAX_VALUE to 0.
 
-	The direction of the count(mode) is selected using a single bit input. The module has 3 inputs - clk, reset which is active high and a Up Or Down mode input. 
++	The direction of the count(mode) is selected using a single bit input. The module has 3 inputs - clk, reset which is active high and a Up Or Down mode input. 
 The output is Counter which is 4 bit in size.
 
-	When Up mode is selected, counter counts from 0 to 15 and then again from 0 to 15.
++	When Up mode is selected, counter counts from 0 to 15 and then again from 0 to 15.
 
-	When Down mode is selected, counter counts from 15 to 0 and then again from 15 to 0.
++	When Down mode is selected, counter counts from 15 to 0 and then again from 15 to 0.
 
-	Changing mode doesn't reset the Count value to zero.
++	Changing mode doesn't reset the Count value to zero.
 
-	You have to apply high value to reset, to reset the Counter output.
- 
-![image](https://github.com/user-attachments/assets/efe1095e-989e-4005-b53b-e9dc50d4025c)
++	You have to apply high value to reset, to reset the Counter output.
 
 ## Fig 1: 4 Bit Up/Down Counter
-
+![image](https://github.com/user-attachments/assets/efe1095e-989e-4005-b53b-e9dc50d4025c)
 ## Creating a Work space :
 
-	Create a folder in your name (Note: Give folder name without any space) and Create a new sub-Directory name it as Exp2 or counter_design for the Design and open a terminal from the Sub-Directory.
++	Create a folder in your name (Note: Give folder name without any space) and Create a new sub-Directory name it as Exp2 or counter_design for the Design and open a terminal from the Sub-Directory.
 Functional Simulation: 
 
 	Invoke the cadence environment by type the below commands 
@@ -41,11 +39,9 @@ Functional Simulation:
       (The path of cshrc could vary depending on the installation destination)
       
 	After this you can see the window like below 
-![Screenshot 2024-10-05 082611](https://github.com/user-attachments/assets/27f84a16-de82-4a96-87fb-63ad547e62f0)
-
 
 ## Fig 2: Invoke the Cadence Environment
-
+![Screenshot 2024-10-05 082611](https://github.com/user-attachments/assets/27f84a16-de82-4a96-87fb-63ad547e62f0)
 
 ## Creating Source Code:
 
@@ -55,24 +51,54 @@ Functional Simulation:
 
 (Note : File name should be with HDL Extension)
 
-### Verilog code for 4-Bit Up-Down Counter:
+## Verilog code for 4-Bit Up-Down Counter:
+```
+`timescale 1ns / 1 ns
+module counter(clk,m,rst,count);
+input clk,m,rst;
+output reg [3:0] count;
+always@(posedge clk or negedge rst) begin
+if (!rst)
+count=0;
+else if(m)
+count=count+1;
+else
+count=count-1;
+end
+endmodule
+```
 
-*/Program  for  4-Bit Up-Down Counter
-
-	Use Save option or Ctrl+S to save the code or click on the save option from the top most right corner and close the text file.
++	Use Save option or Ctrl+S to save the code or click on the save option from the top most right corner and close the text file.
 
 ## Creating Test bench:
 
 	Similarly, create your test bench using gedit <filename_tb>.v or <filename_tb>.vhdl to open a new blank document (4bitup_down_count_tb.v).
 
 ### Test-bench code for 4-Bit Up-Down Counter:
+```
 
-*/Test bench Program  for  4-Bit Up-Down Counter
+`timescale 1ns / 1ns
+module counter_test;
+reg clk,rst,m;
+wire [3:0] count;
+initial begin
+clk=0;
+rst=0;#5;
+rst=1; end
+initial begin
+m=1;
+#160 m=0; end
+counter counter1 (clk,m,rst, count);
+always #5 clk=~clk;
+initial begin $monitor("Time=%t rst=%b clk=%b count=%b" , $time,rst,clk,count);
+#320 $finish; end
+endmodule
+```
 
 ### To Launch Simulation tool
-	linux:/> nclaunch -new&            // “-new” option is used for invoking NCVERILOG for the first time for any design
++	linux:/> nclaunch -new&            // “-new” option is used for invoking NCVERILOG for the first time for any design
 
-	linux:/> nclaunch&                 // On subsequent calls to NCVERILOG
++	linux:/> nclaunch&                 // On subsequent calls to NCVERILOG
 
 It will invoke the nclaunch window for functional simulation we can compile,elaborate and simulate it using Multiple step
 ![Screenshot 2024-10-05 082721](https://github.com/user-attachments/assets/b9d754f3-dbdd-478f-bc17-ca295279a1b1)
