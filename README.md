@@ -1,4 +1,4 @@
-# Counter_4bit_up-down
+## Exp-No:2 BIT Up-Down Counter - Write Verilog Code and Verify the Functionality using Test-bench ( Using Frontend tool - nclaunch in cadence).
 
 ## Aim:
 
@@ -10,30 +10,24 @@ To write a verilog code for 4bit up/down counter and verify the functionality us
    
 ## Design Information and Bock Diagram:
 
-	An up/down counter is a digital counter which can be set to count either from 0 to
-MAX_VALUE or MAX_VALUE to 0.
++ An up/down counter is a digital counter which can be set to count either from 0 to
+  MAX_VALUE or MAX_VALUE to 0.
++ The direction of the count(mode) is selected using a single bit input. The module has 3 inputs - clk, 
+  reset which is active high and a Up Or Down mode input. The output is Counter which is 4 bit in size.
++ When Up mode is selected, counter counts from 0 to 15 and then again from 0 to 15.
++ When Down mode is selected, counter counts from 15 to 0 and then again from 15 to 0.
++ Changing mode doesn't reset the Count value to zero.
++ You have to apply high value to reset, to reset the Counter output.
 
-	The direction of the count(mode) is selected using a single bit input. The module has 3 inputs - clk, reset which is active high and a Up Or Down mode input. 
-The output is Counter which is 4 bit in size.
-
-	When Up mode is selected, counter counts from 0 to 15 and then again from 0 to 15.
-
-	When Down mode is selected, counter counts from 15 to 0 and then again from 15 to 0.
-
-	Changing mode doesn't reset the Count value to zero.
-
-	You have to apply high value to reset, to reset the Counter output.
- 
-![image](https://github.com/user-attachments/assets/efe1095e-989e-4005-b53b-e9dc50d4025c)
 
 ## Fig 1: 4 Bit Up/Down Counter
-
+![image](https://github.com/user-attachments/assets/efe1095e-989e-4005-b53b-e9dc50d4025c)
 ## Creating a Work space :
 
-	Create a folder in your name (Note: Give folder name without any space) and Create a new sub-Directory name it as Exp2 or counter_design for the Design and open a terminal from the Sub-Directory.
-Functional Simulation: 
-
-	Invoke the cadence environment by type the below commands 
++ Create a folder in your name (Note: Give folder name without any space) and Create a new sub-Directory 
+  name it as Exp2 or counter_design for the Design and open a terminal from the Sub-Directory.
+## Functional Simulation: 
++ Invoke the cadence environment by type the below commands 
 
 	tcsh (Invokes C-Shell) 
 
