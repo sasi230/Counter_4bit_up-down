@@ -102,9 +102,7 @@ It will invoke the nclaunch window for functional simulation we can compile,elab
 
 
 ## Fig 3: Setting Multi-step simulation
-
 Select Multiple Step and then select “Create cds.lib File” as shown in below figure
-
 Click the cds.lib file and save the file by clicking on Save option
 ![Screenshot 2024-10-05 082729](https://github.com/user-attachments/assets/dec04f0a-6145-4c1d-91c7-53d1b19e4217)
 
