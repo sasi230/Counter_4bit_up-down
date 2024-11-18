@@ -95,6 +95,7 @@ initial begin $monitor("Time=%t rst=%b clk=%b count=%b" , $time,rst,clk,count);
 endmodule
 ```
 ### To Launch Simulation tool
+
 +	linux:/> nclaunch -new&            // “-new” option is used for invoking NCVERILOG for the first time for any design
 +	linux:/> nclaunch&                 // On subsequent calls to NCVERILOG
 It will invoke the nclaunch window for functional simulation we can compile,elaborate and simulate it using Multiple step
