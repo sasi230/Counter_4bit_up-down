@@ -99,6 +99,7 @@ endmodule
 +	linux:/> nclaunch -new&            // “-new” option is used for invoking NCVERILOG for the first time for any design
 +	linux:/> nclaunch&                 // On subsequent calls to NCVERILOG
 It will invoke the nclaunch window for functional simulation we can compile,elaborate and simulate it using Multiple step
+
 ![Screenshot 2024-10-05 082721](https://github.com/user-attachments/assets/b9d754f3-dbdd-478f-bc17-ca295279a1b1)
 
 
